@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login',() =>{
+    cy.visit('/')
+    login_element.login_anim.should('not.exist')
+    cy.fixture('login_data.json').then((user_data) => {
+    login_element.login_username.should('be.visible')
+        .click()
+        .type(user_data.user_name)
+    login_element.login_password.should('be.visible')
+        .click()
+        .type(user_data.user_password)
+    })
+    login_element.login_button.click()
+    cy.url().should('include', '/#/home')
+})
