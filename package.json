@@ -1,0 +1,15 @@
+{
+  "name": "suitecrm",
+  "version": "1.0.0",
+  "description": "Pruebas de automatizacion web para las funcionalidades en el sistema SUITE CRM demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "selena_santa_cruz_crespo",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.14.1"
+  }
+}
