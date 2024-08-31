@@ -1,0 +1,28 @@
+{
+    "title": "1: Mr.",
+    "fullName": "Felix",
+    "jobTitle": "Gerente en ventas",
+    "department": "Ventas",
+    "project": "Ecos",
+    "primaryAddress": {
+    "street": "000",
+    "city": "Cochabamba",
+    "district": "Centro",
+    "country": "Bolivia"
+    },
+    "email": "felix@gmail.com",
+    "phoneNumbers": "12234",
+    "numbers": "73482834",
+    "faxNumbers": "+123456",
+    "website": "ecos.com",
+    "altAddress": {
+    "street": "000",
+    "city": "Oruro",
+    "district": "Centro",
+    "country": "Bolivia"  
+    },
+    "basic_Filter": {
+    "validCompanyName": "XY&Z Funding Inc",
+    "invalidCompanyName": "Icepl Inc"
+    }
+}  
