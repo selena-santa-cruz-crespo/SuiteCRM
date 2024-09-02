@@ -1,0 +1,14 @@
+{
+    "contact_name": "Ethan",
+    "contact_office_phone": "65356423",
+    "contact_job_title": "software enginering",
+    "contact_primary_adress_street": "Calle Prueba N. 533",
+    "contact_postal": "0000",
+    "contact_city": "Sucre",
+    "contact_state": "Chuquisaca",
+    "contact_country": "Bolivia",
+    "contact_description": "Prueba al momento de crear contacto sin añadir un last name",
+    "contact_mobile": "(1) 123-456-789",
+    "contact_department": "software",
+    "contact_fax": "123456"
+}
