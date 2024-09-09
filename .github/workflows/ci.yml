@@ -1,30 +1,13 @@
+# .github/workflows/ci.yml
 name: Run Cypress Tests
 
 on:
-  push:
-    branches:
-      - development
-      - H9-meetings
-      - H8-calls
-      - H6-opportunities
-      - H5-accounts
-      - H4-contacts
-      - H3-calendar
-      - H2-leads
-      - H1-login
-      - H7-home
   pull_request:
     branches:
       - development
-      - H9-meetings
-      - H8-calls
-      - H6-opportunities
-      - H5-accounts
-      - H4-contacts
-      - H3-calendar
-      - H2-leads
-      - H1-login
-      - H7-home
+  push:
+    branches:
+      - development
 
 jobs:
   build:
@@ -42,39 +25,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Get modified test files
-        id: get_modified_files
-        run: |
-          git fetch origin development
-          echo "Modified files:"
-          git diff --name-only origin/development | grep "cypress/integration/" > modified_files.txt
-          cat modified_files.txt
-
-      - name: Check for modified files
-        id: check_files
-        run: |
-          if [ -s modified_files.txt ]; then
-            echo "Files modified."
-            echo "files=1" >> $GITHUB_ENV
-          else
-            echo "No modified files found."
-            echo "files=0" >> $GITHUB_ENV
-          fi
-
       - name: Run Cypress tests
-        if: env.files == '1'
-        run: |
-          while IFS= read -r file; do
-            if [ -f "$file" ]; then
-              echo "Running Cypress tests in $file"
-              npx cypress run --spec "$file"
-            else
-              echo "File $file not found."
-            fi
-          done < modified_files.txt
-
-      - name: Run all Cypress tests (fallback)
-        if: env.files == '0'
-        run: |
-          echo "No modified test files found. Running all tests."
-          npx cypress run
+        run: npm run test
