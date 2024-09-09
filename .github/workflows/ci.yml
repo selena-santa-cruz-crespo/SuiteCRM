@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: Run Cypress Tests
 
 on:
@@ -25,5 +24,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Get modified test files
+        id: get_modified_files
+        run: |
+          git fetch origin development
+          echo "Modified files:"
+          git diff --name-only origin/development | grep "cypress/integration/" > modified_files.txt
+          cat modified_files.txt
+
       - name: Run Cypress tests
-        run: npm run test
+        if: steps.get_modified_files.outputs.modified_files != ''
+        run: |
+          # Leer los archivos modificados y ejecutar pruebas solo para esos archivos
+          while IFS= read -r file; do
+            echo "Running Cypress tests in $file"
+            npx cypress run --spec "$file"
+          done < modified_files.txt
+
+      - name: Run all Cypress tests (fallback)
+        if: steps.get_modified_files.outputs.modified_files == ''
+        run: |
+          echo "No modified test files found. Running all tests."
+          npx cypress run
