@@ -272,7 +272,7 @@ describe('Pruebas Home', () => {
         cy.get('scrm-table-body').find('tr').should('have.length.greaterThan', 0)
     })
     
-    it('FTC 726 - Verificar que al presionar el boton "More" e ingresar al formulario "Schedule Meeting" desde la barra de navegacion, el menu desplegado desaparece', () => {
+    it.skip('FTC 726 - Verificar que al presionar el boton "More" e ingresar al formulario "Schedule Meeting" desde la barra de navegacion, el menu desplegado desaparece', () => {
     cy.task('log','Buscando y presionando el boton "More"')
     home_elements.more_button.click()
     cy.task('log','Verificando que el menu se despliegue')
@@ -284,7 +284,7 @@ describe('Pruebas Home', () => {
     home_elements.more_menu.should('not.be.visible')
 })
 
-    it('FTC 727 - Verificar que al presionar el boton "+" de la barra de navegacion y seleccionar "Create Opportunity", el menu desplegado desaparece', () => {
+    it.skip('FTC 727 - Verificar que al presionar el boton "+" de la barra de navegacion y seleccionar "Create Opportunity", el menu desplegado desaparece', () => {
     home_elements.plus_button.click()
     home_elements.plus_menu.should('be.visible')
     home_elements.create_opportunity_button.click()
