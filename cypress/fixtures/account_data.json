@@ -1,0 +1,14 @@
+{
+    "account_website": "https://suite8demo.suiteondemand.com",
+    "account_email": "automatizacion_suite@gmail.com",
+    "account_billing_street": "Prueba casi Av. Titulacion",
+    "account_billing_postal_code": "000 000 0000",
+    "account_billing_country": "Cbba",
+    "account_description": "Empresa de gestion de cuentas de negocios",
+    "account_office_phone": "555 444 6666",
+    "account_fax":"555 444 6666",
+    "account_shipping_street":"Marcion #234",
+    "account_shipping_city":"Scz",
+    "account_filter":"m"
+
+  }
