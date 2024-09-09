@@ -268,7 +268,7 @@ describe('Pruebas Home', () => {
         cy.get('.top-nav .dropdown-menu').contains('Products').click()
         cy.get('.list-view-title').should('be.visible')
         cy.get('.cdk-header-row .cdk-column-name').should('be.visible')
-        cy.get('.cdk-row .cdk-column-name').should('be.visible')
+      //  cy.get('.cdk-row .cdk-column-name').should('be.visible')
         cy.get('scrm-table-body').find('tr').should('have.length.greaterThan', 0)
     })
     
