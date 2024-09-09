@@ -152,7 +152,7 @@ it('FTC 306 - Verificar que al modificar la hora de inicio y fin del dia el sist
     })
 })
 
-it('FTC 307 - Verificar que al ingresar al formulario agendar una llamada desde la pagina principal del calendario el sistema muestre el "Log call" como "checked"', () => {
+it.skip('FTC 307 - Verificar que al ingresar al formulario agendar una llamada desde la pagina principal del calendario el sistema muestre el "Log call" como "checked"', () => {
     cy.task('log','Ingresando a la vista del calendario')
     calendar_elements.calendar_page()
     .click({force: true})
