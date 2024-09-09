@@ -25,9 +25,9 @@ const login_element = new LoginElements()
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('getIframe', (iframeSelector) => {
-    return cy.get(iframeSelector)
-    .its('0.contentDocument.body').should('not.be.empty')
+Cypress.Commands.add('getIframe', (iframeSelector, timeout = 20000) => {
+    return cy.get(iframeSelector, {timeout})
+    .its('0.contentDocument.body').should('not.be.empty', {timeout})
     .then(cy.wrap)
 })
 Cypress.Commands.add('login',() =>{
