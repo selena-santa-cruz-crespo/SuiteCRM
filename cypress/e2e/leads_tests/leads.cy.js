@@ -123,7 +123,7 @@ it('TC 205 - Verificar que al intentar crear un filtro rápido sin completar los
     .and('be.visible')
 });
 
-it('FTC: 206  -  Verificar que al visualizar la lista de clientes potenciales, se muestran los resultados filtrados', () => {
+it('FTC: 206  -  Verificar que al hacer click en visualizar la lista de clientes potenciales, se muestran una tabla con los clientes potenciales', () => {
     cy.task('log', 'Verificando URL de la página de inicio')
     leads_elements.verifyHomePageUrl()
     cy.task('log', 'Verificando que la barra de navegación sea visible')
