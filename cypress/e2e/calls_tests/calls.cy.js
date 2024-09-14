@@ -13,9 +13,7 @@ describe('Pruebas Reuniones', () => {
               .should('contain.text', 'Missing required field: Subject')
         })
     })
-    
-
-    it('TC 802 - Verificar que al llenar todos los campos obligatorios y hacer click en cancelar nos redirija a la lista de llamadas', () => {
+it('TC 802 - Verificar que al llenar todos los campos obligatorios y hacer click en cancelar nos redirija a la lista de llamadas', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get('.top-nav > .dropdown-menu > :nth-child(4) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
         cy.get('.active > .ng-tns-c3520175481-2 > scrm-base-menu-item.ng-star-inserted > .menu-item-wrapper > .dropdown-menu > :nth-child(1) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .sub-nav-link').click({ force: true })
@@ -25,9 +23,7 @@ describe('Pruebas Reuniones', () => {
             cy.wrap($iframeBody).find('#CANCEL').click()
         });
     });
-    
-
-    it('TC 803: Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado', () => {
+ it('TC 803: Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get('.top-nav > .dropdown-menu > :nth-child(4) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
         cy.get('.active > .ng-tns-c3520175481-2 > scrm-base-menu-item.ng-star-inserted > .menu-item-wrapper > .dropdown-menu > :nth-child(1) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .sub-nav-link').click({ force: true })
@@ -75,16 +71,14 @@ it.skip('TC 805: Verificar que al buscar una llamada con los datos correctos dev
       });
 });
 
-    
-    it('FTC 806 - Verificar que al presionar sobre un “>” avance a los siguientes 20 llamadas', () => {
+ it('FTC 806 - Verificar que al presionar sobre un “>” avance a los siguientes 20 llamadas', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get('.top-nav > .dropdown-menu > :nth-child(4) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
         cy.get('scrm-table-header.ng-star-inserted > .list-view-tableactions > .justify-content-between > .mx-0 > scrm-pagination.ng-star-inserted > .bulk-action > .pagination-next > .sicon-2x > .sicon > svg').click()
         cy.get('scrm-table-header.ng-star-inserted > .list-view-tableactions > .justify-content-between > .mx-0 > scrm-pagination.ng-star-inserted > .bulk-action').click()
         cy.get('scrm-table-header.ng-star-inserted > .list-view-tableactions > .justify-content-between > .mx-0 > scrm-pagination.ng-star-inserted > .bulk-action').click()
     })
-
-    it('FTC 807 - Verificar que al presionar sobre un “>>” avance al final de las llamadas', () => {
+it('FTC 807 - Verificar que al presionar sobre un “>>” avance al final de las llamadas', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get('.top-nav > .dropdown-menu > :nth-child(4) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
         cy.get('scrm-table-header.ng-star-inserted > .list-view-tableactions > .justify-content-between > .mx-0 > scrm-pagination.ng-star-inserted > .bulk-action > .pagination-last > .sicon-2x > .sicon > svg').click()
