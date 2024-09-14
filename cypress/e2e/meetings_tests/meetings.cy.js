@@ -74,7 +74,7 @@ describe('Pruebas Reuniones', () => {
     })
     
 
-    it('FTC 906 - Verificar que al presionar sobre un “subject” en meetings nos redirija a los datos guardados de ese “subject”', () => {
+    it('FTC 906 - Verificar que al presionar sobre un “>” avance a los siguientes 20', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get(':nth-child(5) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link').click()
         cy.get('body > app-root > div > scrm-list > div > scrm-list-container > div > div > div > scrm-table > div > scrm-table-body > div > table')
@@ -89,7 +89,7 @@ describe('Pruebas Reuniones', () => {
     })
     
     
-    it('FTC 907 - Verificar que al presionar sobre un “Related to” en meetings nos redirija a los datos guardados de ese “Related to”', () => {
+    it('FTC 907 - Verificar que al presionar sobre un “>>” avance al final de las reuniones', () => {
         cy.get('.top-nav > .nav-link-nongrouped').click()
         cy.get(':nth-child(5) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
         cy.get('body > app-root > div > scrm-list > div > scrm-list-container > div > div > div > scrm-table > div > scrm-table-body > div > table')
