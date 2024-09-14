@@ -56,7 +56,7 @@ describe('Pruebas Reuniones', () => {
     })
     
     
-    it.skip('TC 905: Verificar que al buscar una reunión con "Review needs" y "B.H. Edwards Inc." no devuelve resultados esperados', () => {
+    it.skip('TC 905 Verificar que al buscar una reunión  con los datos correctos devuelve solo esa reunión', () => {
         cy.get('.nav-link-nongrouped > scrm-label').click()
         cy.get(':nth-child(5) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link').click()
         cy.get('.filter-settings-button').click()
