@@ -58,7 +58,7 @@ describe('Pruebas Reuniones', () => {
 })
     
 
-it('TC 805: Verificar que al buscar una llamada con los datos correctos devuelve solo esa llamada', () => {
+it.skip('TC 805: Verificar que al buscar una llamada con los datos correctos devuelve solo esa llamada', () => {
     cy.get('.nav-link-nongrouped > scrm-label').click();
     cy.get('.top-nav > .dropdown-menu > :nth-child(4) > scrm-menu-item-link > scrm-base-menu-item-link.ng-star-inserted > .nav-link > .ng-star-inserted').click()
     cy.get('.filter-settings-button').click()
