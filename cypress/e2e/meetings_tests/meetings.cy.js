@@ -3,7 +3,7 @@ import { MeetingsElements } from '../../support/pages_objects/meetings_elements'
 
 const meetings_elements = new MeetingsElements();
 
-describe('Pruebas Reuniones', () => {
+describe('Pruebas Meetings', () => {
     hooks.setup_before_each()
 
     it('TC 901 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear una reunión', () => {

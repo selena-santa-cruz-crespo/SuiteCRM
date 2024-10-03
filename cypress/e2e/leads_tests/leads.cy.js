@@ -4,7 +4,7 @@ import * as hooks from '../../support/hooks';
 
 const leads_elements = new LeadsElements();
 
-describe('Leads Test', () => {
+describe('Pruebas Leads ', () => {
 hooks.setup_before_each()
 
 it('TC 201 - Verificar que al intentar crear un usuario sin completar los campos obligatorios, se muestre un mensaje de error.', () => {

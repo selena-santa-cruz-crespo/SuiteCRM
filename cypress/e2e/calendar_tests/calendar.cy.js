@@ -2,7 +2,7 @@ import * as hooks from '../../support/hooks'
 import { CalendarElements } from '../../support/pages_objects/calendar_elements'
 const calendar_elements = new CalendarElements()
 
-describe('Calendar Tests', () => {
+describe('Pruebas Calendar', () => {
     hooks.setup_before_each()
 
 it('TC 301 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar su reunión', { tags: ['smoketest'] }, () => {

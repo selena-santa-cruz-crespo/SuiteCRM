@@ -3,7 +3,7 @@ import { ContactsElements } from '../../support/pages_objects/contacts_elements'
 
 const contacts_elements = new ContactsElements;
 
-describe('Contacts Tests', () => {
+describe('Pruebas Contacts ', () => {
     hooks.setup_before_each()
 
 it('TC 401 - Verificar que al presionar sobre el título de cualquier columna que sea ordenable entonces el sistema ordenará los registros según los valores de ese campo en orden ascendente', () => {
