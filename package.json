@@ -4,7 +4,7 @@
   "description": "Pruebas de automatizacion web para las funcionalidades en el sistema SUITE CRM demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "selena_santa_cruz_crespo",
@@ -12,4 +12,5 @@
   "devDependencies": {
     "cypress": "^13.14.1"
   }
+  
 }
