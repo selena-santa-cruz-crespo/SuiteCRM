@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-03T21:52:56.686Z",
+    "end": "2024-10-03T21:54:48.043Z",
+    "duration": 111357,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "11ebcfed-a095-40b1-a42b-1fdc52453653",
+      "title": "",
+      "fullFile": "cypress\\e2e\\meetings_tests\\meetings.cy.js",
+      "file": "cypress\\e2e\\meetings_tests\\meetings.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9fedc9a-9468-453c-b080-00961710c52c",
+          "title": "Pruebas Meetings",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 901 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear una reunión",
+              "fullTitle": "Pruebas Meetings TC 901 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear una reunión",
+              "timedOut": null,
+              "duration": 22769,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que no se puede crear una reunión con campos vacíos');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.submenuCreateMeeting().click({\n  force: true\n});\nmeetings_elements.parentNameField().clear().type('Review needs');\nmeetings_elements.locationField().clear().type('Review needs');\nmeetings_elements.saveButton().click();\nmeetings_elements.errorMessage().should('contain.text', 'Missing required field: Subject');\ncy.task('log', 'Verificación completa: se mostró el mensaje de error adecuado.');",
+              "err": {},
+              "uuid": "560df668-450d-4e80-b509-e3409ec3411b",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 902 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado para reunión",
+              "fullTitle": "Pruebas Meetings TC 902 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado para reunión",
+              "timedOut": null,
+              "duration": 13695,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que no se puede crear un invitado con campos vacíos');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.submenuCreateMeeting().click({\n  force: true\n});\nmeetings_elements.createInviteeAsContact().click();\nmeetings_elements.inviteeFirstNameField().clear().type('Lia');\nmeetings_elements.inviteeEmailField().clear().type('tom@gmail.com');\nmeetings_elements.createInviteeButton().click();\nmeetings_elements.inviteeLastNameError().should('contain.text', 'Missing required field: Last Name');\ncy.task('log', 'se mostró el mensaje de error para el campo de apellido.');",
+              "err": {},
+              "uuid": "ed723df1-129d-4ea9-ba1a-2d70d45e50cf",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 903 - Verificar que al buscar un contacto inexistente muestre como resultado “Sorry, no results were found. Please create an invitee below.”",
+              "fullTitle": "Pruebas Meetings TC 903 - Verificar que al buscar un contacto inexistente muestre como resultado “Sorry, no results were found. Please create an invitee below.”",
+              "timedOut": null,
+              "duration": 12897,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que se muestra un mensaje al buscar un contacto inexistente');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.submenuCreateMeeting().click({\n  force: true\n});\nmeetings_elements.searchFirstName().clear().type('Negan');\nmeetings_elements.searchLastName().clear().type('Ramit');\nmeetings_elements.saveButton().click();\nmeetings_elements.emptySearchMessage().should('contain.text', 'Sorry, no results were found. Please create an invitee below.');\ncy.task('log', 'se mostró el mensaje de no resultados.');",
+              "err": {},
+              "uuid": "be0517ff-1d62-4718-93a9-369cfbbff65c",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 904 - Verificar que al dejar todos los campos vacíos nos devuelve todos los contactos guardados",
+              "fullTitle": "Pruebas Meetings TC 904 - Verificar que al dejar todos los campos vacíos nos devuelve todos los contactos guardados",
+              "timedOut": null,
+              "duration": 11729,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que se devuelven todos los contactos al dejar campos vacíos');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.submenuCreateMeeting().click({\n  force: true\n});\nmeetings_elements.inviteesSearch().click();\nmeetings_elements.listDiv().should('not.be.empty');\ncy.task('log', 'Verificación completa: se devolvieron todos los contactos guardados.');",
+              "err": {},
+              "uuid": "d81829c1-cdcb-4a9d-aa16-6ee6404b8025",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 905: Verificar que al buscar una reunión con \"Review needs\" y \"B.H. Edwards Inc.\" no devuelve resultados esperados",
+              "fullTitle": "Pruebas Meetings TC 905: Verificar que al buscar una reunión con \"Review needs\" y \"B.H. Edwards Inc.\" no devuelve resultados esperados",
+              "timedOut": null,
+              "duration": 27128,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que al buscar una reunión con \"Review needs\" y \"B.H. Edwards Inc.\" no devuelve los resultados esperados');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.filterSettingsButton().click();\nmeetings_elements.firstFilterInput().clear().type('Review needs');\nmeetings_elements.secondFilterInput().clear().type('B.H. Edwards Inc.');\nmeetings_elements.multiSelectDropdown().click();\nmeetings_elements.multiSelectInput().clear().type('chris');\nmeetings_elements.filterButton().click();\nmeetings_elements.listViewTitle().should('contain.text', 'Review needs');\nmeetings_elements.listViewRow().should('contain.text', 'B.H. Edwards Inc.');\ncy.task('log', 'se buscaron y verificaron correctamente los resultados esperados.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected '<scrm-module-title.list-view-title>' to contain text 'Review needs', but the text was '\\nMEETINGS\\n'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected '<scrm-module-title.list-view-title>' to contain text 'Review needs', but the text was '\\nMEETINGS\\n'\n    at Context.eval (webpack:///./cypress/e2e/meetings_tests/meetings.cy.js:66:42)",
+                "diff": "- '\\nMEETINGS\\n'\n+ 'Review needs'\n"
+              },
+              "uuid": "dc8affa3-8152-4681-b293-4d2ab769bf30",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 906 - Verificar que al presionar sobre un “subject” en meetings nos redirija a los datos guardados de ese “subject”",
+              "fullTitle": "Pruebas Meetings FTC 906 - Verificar que al presionar sobre un “subject” en meetings nos redirija a los datos guardados de ese “subject”",
+              "timedOut": null,
+              "duration": 11955,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando redirección al hacer clic en un subject');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.verifyMeetingsTableHasRows();\ncy.task('log', 'Verificación completa: se redirigió correctamente al subject.');",
+              "err": {},
+              "uuid": "1ddc08bd-9c28-4be2-a42f-45ac3db8d7d2",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 907 - Verificar que al presionar sobre un “Related to” en meetings nos redirija a los datos guardados de ese “Related to”",
+              "fullTitle": "Pruebas Meetings FTC 907 - Verificar que al presionar sobre un “Related to” en meetings nos redirija a los datos guardados de ese “Related to”",
+              "timedOut": null,
+              "duration": 10464,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando redirección al hacer clic en un Related to');\nmeetings_elements.menuMeetings().click();\nmeetings_elements.submenuMeetings().click();\nmeetings_elements.verifyMeetingsTableHasRows();\ncy.task('log', 'Verificación completa: se redirigió correctamente al Related to.');",
+              "err": {},
+              "uuid": "90d2bf1e-2742-4a79-af68-b38e00825278",
+              "parentUUID": "d9fedc9a-9468-453c-b080-00961710c52c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "560df668-450d-4e80-b509-e3409ec3411b",
+            "ed723df1-129d-4ea9-ba1a-2d70d45e50cf",
+            "be0517ff-1d62-4718-93a9-369cfbbff65c",
+            "d81829c1-cdcb-4a9d-aa16-6ee6404b8025",
+            "1ddc08bd-9c28-4be2-a42f-45ac3db8d7d2",
+            "90d2bf1e-2742-4a79-af68-b38e00825278"
+          ],
+          "failures": [
+            "dc8affa3-8152-4681-b293-4d2ab769bf30"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 110637,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

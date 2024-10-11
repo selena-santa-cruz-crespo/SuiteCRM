@@ -1,0 +1,243 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 7,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-03T21:41:02.698Z",
+    "end": "2024-10-03T21:43:30.839Z",
+    "duration": 148141,
+    "testsRegistered": 8,
+    "passPercent": 87.5,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9868adab-42ec-4adc-a752-2a429883ccbf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\contacts_tests\\contacts.cy.js",
+      "file": "cypress\\e2e\\contacts_tests\\contacts.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+          "title": "Pruebas Contacts ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 401 - Verificar que al presionar sobre el título de cualquier columna que sea ordenable entonces el sistema ordenará los registros según los valores de ese campo en orden ascendente",
+              "fullTitle": "Pruebas Contacts  TC 401 - Verificar que al presionar sobre el título de cualquier columna que sea ordenable entonces el sistema ordenará los registros según los valores de ese campo en orden ascendente",
+              "timedOut": null,
+              "duration": 32646,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.top-nav-link').contains('Contacts').click();\ncy.url().should('include', 'contacts');\ncontacts_elements.contact_table.should('be.visible');\ncy.task('log', 'Presionar dobleclick para acceder al orden ascendente');\ncontacts_elements.order_button.dblclick();\ncy.wait(4000);\ncontacts_elements.name_column.then(elements => {\n  const actualOrder = [...elements].map(el => el.innerText.trim());\n  cy.task('log', 'Contactos ordenados según la función: ' + JSON.stringify(actualOrder));\n  const sortedOrder = actualOrder.sort();\n  cy.task('log', 'Ordenar resultados en caso de error para su verificación: ' + JSON.stringify(sortedOrder));\n  expect(actualOrder).to.deep.equal(sortedOrder);\n});",
+              "err": {},
+              "uuid": "6ad34ee2-16ee-43cd-8801-08d2737dbd34",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 402 - Verificar que al presionar sobre el título de cualquier columna que sea ordenable entonces el sistema ordenará los registros según los valores de ese campo en orden descendente",
+              "fullTitle": "Pruebas Contacts  TC 402 - Verificar que al presionar sobre el título de cualquier columna que sea ordenable entonces el sistema ordenará los registros según los valores de ese campo en orden descendente",
+              "timedOut": null,
+              "duration": 27004,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.top-nav-link').contains('Contacts').click();\ncy.url().should('include', 'contacts');\ncontacts_elements.contact_table.should('be.visible');\ncontacts_elements.order_button.click();\ncy.wait(3000);\ncontacts_elements.name_column.then(elements => {\n  const actualOrder = [...elements].map(el => el.innerText.trim());\n  cy.task('log', 'Contactos ordenados según la funcción: ' + JSON.stringify(actualOrder));\n  const sortedOrder = actualOrder.sort((a, b) => b - a);\n  cy.task('log', 'Ordenar resultados en caso de error para su verificación: ' + JSON.stringify(sortedOrder));\n  expect(actualOrder).to.deep.equal(sortedOrder);\n});",
+              "err": {},
+              "uuid": "978ca93d-9a98-469a-bf7e-351b8e852226",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 403 - Verificar que al llenar campo “First Name” del formulario de filtro, el sistema devuelva lo estipulado",
+              "fullTitle": "Pruebas Contacts  TC 403 - Verificar que al llenar campo “First Name” del formulario de filtro, el sistema devuelva lo estipulado",
+              "timedOut": null,
+              "duration": 12881,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/#/contacts');\ncontacts_elements.contact_table.should('be.visible');\ncy.task('log', 'Acceder a formulario [Filtrar contactos]');\ncontacts_elements.filter.should('be.visible').click();\ncy.task('log', 'Ingreso de valor \"Ol\" en campo [First Name]');\ncontacts_elements.filter_placeholder.type('Ol');\ncy.contains('scrm-label.ng-star-inserted', 'Search').click();\ncy.get('td.cdk-cell.cdk-column-name.column-name.column-type-name.ng-star-inserted > scrm-field > scrm-dynamic-field > a > scrm-varchar-detail:contains(\"Ol\")').should('exist');",
+              "err": {},
+              "uuid": "4d93575c-73f5-4dc4-94ff-032c5f38f2e7",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 404 - Verificar que al presionar el button \"next\" de paginación, el contador de los resultados cambia de valor",
+              "fullTitle": "Pruebas Contacts  TC 404 - Verificar que al presionar el button \"next\" de paginación, el contador de los resultados cambia de valor",
+              "timedOut": null,
+              "duration": 11929,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/#/contacts');\ncontacts_elements.title_contact.should('contain.text', 'CONTACTS');\ncontacts_elements.pagination_contact.should('contain.text', '(1 - 20');\ncontacts_elements.pagination_button.last().click();\ncy.task('log', 'Verificación de contador de siguiente página de contactos');\ncontacts_elements.pagination_contact.should('contain.text', '(21 - 40 of 200)');",
+              "err": {},
+              "uuid": "56b0ce98-686b-43af-b757-c27b4349f166",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 405 - Verificar que al presionar ícono \">>\" estemos en la última vista de paginación",
+              "fullTitle": "Pruebas Contacts  TC 405 - Verificar que al presionar ícono \">>\" estemos en la última vista de paginación",
+              "timedOut": null,
+              "duration": 13050,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/#/contacts');\ncontacts_elements.title_contact.should('contain.text', 'CONTACTS');\ncy.wait(2000);\ncontacts_elements.pagination_full_button.first().click();\ncy.wait(1000);\ncy.task('log', 'Verificando contador de última página de contactos');\ncontacts_elements.pagination_contact.first().invoke('text').then(elements => {\n  const pagination = elements.match(/[\\d]+|[^\\w\\s]/g);\n  cy.log(JSON.stringify(pagination));\n  expect(pagination[3]).to.equal(pagination[pagination.length - 2]);\n});",
+              "err": {
+                "message": "AssertionError: expected '20' to equal '200'",
+                "estack": "AssertionError: expected '20' to equal '200'\n    at Context.eval (webpack:///./cypress/e2e/contacts_tests/contacts.cy.js:73:33)",
+                "diff": "- '20'\n+ '200'\n"
+              },
+              "uuid": "34f121e2-5dbf-4532-9c14-e593595f2e2a",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 406 - Verificar que al dejar el campo obligatorio vacío el usuario no puede crear un contacto.",
+              "fullTitle": "Pruebas Contacts  TC 406 - Verificar que al dejar el campo obligatorio vacío el usuario no puede crear un contacto.",
+              "timedOut": null,
+              "duration": 19160,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "contacts_elements.createContactButton.click({\n  force: true\n});\ncontacts_elements.verifyContactFormPage();\ncontacts_elements.contact_page.should('contain.text', 'OVERVIEW').and('be.visible');\ncy.task('log', 'Ingresando los datos del contacto a crear');\ncy.fixture('contact_data.json').then(contact_data => {\n  contacts_elements.name_contact.should('be.visible').type(contact_data.contact_name);\n  contacts_elements.phone_contact.type(contact_data.contact_office_phone);\n  contacts_elements.mobile_contact.type(contact_data.contact_mobile);\n  contacts_elements.jobTitle_contact.type(contact_data.contact_job_title);\n  contacts_elements.department_contact.type(contact_data.contact_department);\n  contacts_elements.fax_contact.type(contact_data.contact_fax);\n  contacts_elements.address_contact.type(contact_data.contact_primary_adress_street);\n  contacts_elements.postal_contact.type(contact_data.contact_postal);\n  contacts_elements.city_contact.type(contact_data.contact_city);\n  contacts_elements.state_contact.type(contact_data.contact_state);\n  contacts_elements.country_contact.type(contact_data.contact_country);\n  contacts_elements.description_contact.type(contact_data.contact_description);\n  contacts_elements.save_contact_button.click();\n  cy.task('log', 'Verificando mensajes de advertencia...');\n  contacts_elements.alert.should('exist').and('be.visible');\n  contacts_elements.create_contact_error.should('contain.text', 'Missing required field: Last Name').and('be.visible');\n});",
+              "err": {},
+              "uuid": "dbae2691-ded6-401f-9b0b-24dad7186436",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 407 - Verificar que al presionar ícono \"Editar\" se muestre el formulario de detalles de un contacto",
+              "fullTitle": "Pruebas Contacts  TC 407 - Verificar que al presionar ícono \"Editar\" se muestre el formulario de detalles de un contacto",
+              "timedOut": null,
+              "duration": 17932,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/#/contacts');\ncy.get('scrm-varchar-detail').first().click();\ncy.get('.record-action-button.ng-star-inserted').first().click();\ncy.task('log', 'Verificar visualización de formulario [Editar contacto]');\ncy.get('.field-layout.edit').should('exist');",
+              "err": {},
+              "uuid": "2ff85e28-77fc-4ae9-ad28-c853ac2460dd",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 408 - Verificar que al no llenar ningún campo el sistema muestra mensaje de advertencia \"Missing required field: Last Name\"",
+              "fullTitle": "Pruebas Contacts  FTC 408 - Verificar que al no llenar ningún campo el sistema muestra mensaje de advertencia \"Missing required field: Last Name\"",
+              "timedOut": null,
+              "duration": 13114,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Acceder a formulario [Crear contacto]');\ncontacts_elements.createContactButton.click({\n  force: true\n});\ncontacts_elements.verifyContactFormPage();\ncontacts_elements.contact_label.should('contain.text', 'Create');\ncy.task('log', 'Presionar save sin llenar ningún campo');\ncontacts_elements.save_contact_button.click();\ncy.task('log', 'Visualización mensaje de advertencia');\ncontacts_elements.create_contact_error.should('be.visible');",
+              "err": {},
+              "uuid": "35fe8afd-f0c1-4d79-8c4e-96561c1384fc",
+              "parentUUID": "b5f97f87-daf1-43e2-9bd1-cb8fcbabdb0a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6ad34ee2-16ee-43cd-8801-08d2737dbd34",
+            "978ca93d-9a98-469a-bf7e-351b8e852226",
+            "4d93575c-73f5-4dc4-94ff-032c5f38f2e7",
+            "56b0ce98-686b-43af-b757-c27b4349f166",
+            "dbae2691-ded6-401f-9b0b-24dad7186436",
+            "2ff85e28-77fc-4ae9-ad28-c853ac2460dd",
+            "35fe8afd-f0c1-4d79-8c4e-96561c1384fc"
+          ],
+          "failures": [
+            "34f121e2-5dbf-4532-9c14-e593595f2e2a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 147716,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

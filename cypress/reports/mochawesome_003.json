@@ -1,0 +1,225 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 1,
+    "failures": 0,
+    "start": "2024-10-03T21:43:32.348Z",
+    "end": "2024-10-03T21:45:24.080Z",
+    "duration": 111732,
+    "testsRegistered": 7,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 14.285714285714285,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a400f645-5a1e-4df0-b6cf-2d6479a2bf7e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\calls_tests\\calls.cy.js",
+      "file": "cypress\\e2e\\calls_tests\\calls.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+          "title": "Pruebas Calls",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 801 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear una llamada",
+              "fullTitle": "Pruebas Calls TC 801 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear una llamada",
+              "timedOut": null,
+              "duration": 46405,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que no se puede crear una llamada con campos vacíos');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.submenuCreateCall().click({\n  force: true\n});\ncalls_elements.setIframe().then(() => {\n  calls_elements.parentNameField().clear().type('Review needs');\n  calls_elements.saveButton().click();\n  calls_elements.errorMessage().should('contain.text', 'Missing required field: Subject');\n  cy.task('log', 'se mostró el mensaje de error adecuado.');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `#detailpanel_-1 > div > div:nth-child(1) > div:nth-child(1) > div.col-xs-12.col-sm-8.edit-view-field > div`, but never found it. Queried from:\n\n              > <body>",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `#detailpanel_-1 > div > div:nth-child(1) > div:nth-child(1) > div.col-xs-12.col-sm-8.edit-view-field > div`, but never found it. Queried from:\n\n              > <body>\n    at Context.eval (webpack:///./cypress/e2e/calls_tests/calls.cy.js:17:42)",
+                "diff": null
+              },
+              "uuid": "8fa70888-15a2-4a39-b6ef-e1e06476b242",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 802 - Verificar que al llenar todos los campos obligatorios y hacer click en cancelar nos redirija a la lista de llamadas",
+              "fullTitle": "Pruebas Calls TC 802 - Verificar que al llenar todos los campos obligatorios y hacer click en cancelar nos redirija a la lista de llamadas",
+              "timedOut": null,
+              "duration": 19614,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que al cancelar, se redirige a la lista de llamadas');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.submenuCreateCall().click({\n  force: true\n});\ncalls_elements.setIframe().then(() => {\n  calls_elements.parentNameField().clear().type('Review needs');\n  calls_elements.description().type('prueba llamadas');\n  calls_elements.cancel().click();\n  cy.url().should('include', '/calls');\n  cy.task('log', 'se redirigió a la lista de llamadas.');\n});",
+              "err": {},
+              "uuid": "146d42fb-07c8-44b6-8e31-75d0a52323c6",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 803 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado",
+              "fullTitle": "Pruebas Calls TC 803 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede crear un invitado",
+              "timedOut": null,
+              "duration": 13104,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que no se puede crear un invitado con campos vacíos');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.submenuCreateCall().click({\n  force: true\n});\ncalls_elements.setIframe().then(() => {\n  calls_elements.createInviteeAsContact().click();\n  calls_elements.inviteeFirstNameField().clear().type('Lia');\n  calls_elements.inviteeEmailField().clear().type('tom@gmail.com');\n  calls_elements.createInviteeButton().click();\n  calls_elements.inviteeLastNameError().should('contain.text', 'Missing required field: Last Name');\n  cy.task('log', ' se mostró el mensaje de error para el campo de apellido.');\n});",
+              "err": {},
+              "uuid": "1a0b1a2a-56a8-4ada-b370-099b4f3c763c",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 804 - Verificar que al buscar un contacto inexistente muestre el mensaje “Sorry, no results were found. Please create an invitee below.”",
+              "fullTitle": "Pruebas Calls TC 804 - Verificar que al buscar un contacto inexistente muestre el mensaje “Sorry, no results were found. Please create an invitee below.”",
+              "timedOut": null,
+              "duration": 11668,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando que se muestra un mensaje al buscar un contacto inexistente');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.submenuCreateCall().click({\n  force: true\n});\ncalls_elements.setIframe().then(() => {\n  calls_elements.searchfirstname().clear().type('Negan');\n  calls_elements.searchlastname().clear().type('Ramit');\n  calls_elements.saveButton().click();\n  calls_elements.emptySearchMessage().should('contain.text', 'Sorry, no results were found. Please create an invitee below.');\n  cy.task('log', 'se mostró el mensaje de no resultados.');\n});",
+              "err": {},
+              "uuid": "3eb6e7fc-fb52-41a8-8258-fe14ec4858e1",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 805 - Verificar que al buscar una llamada con los datos correctos devuelve solo esa llamada",
+              "fullTitle": "Pruebas Calls TC 805 - Verificar que al buscar una llamada con los datos correctos devuelve solo esa llamada",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.task('log', 'Verificando la búsqueda de una llamada con datos correctos');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.filterSettingsButton().click();\ncalls_elements.filterCallSubject().clear().type('Left a message');\ncy.get(':nth-child(2) > .d-flex > :nth-child(2) > .field > .dynamic-field > scrm-varchar-filter.ng-star-inserted > .form-control').clear().type('JCB Banking Inc');\ncy.get('#pn_id_9 > .p-multiselect-label-container > .p-multiselect-label').click();\ncy.get('.p-inputtext').clear().type('chris');\ncy.get('.filter-button').click();\ncy.get('body > app-root > div > scrm-list > div > scrm-list-container > div > div > div > scrm-table > div > scrm-table-body > div > div > p').should('exist').and($tableBody => {\n  const rows = $tableBody.find('table > tbody > tr');\n  expect(rows.length).to.be.greaterThan(0);\n});\ncy.task('log', 'Verificación completa: se devolvieron resultados correctos de la búsqueda.');",
+              "err": {},
+              "uuid": "7ffd3b58-995d-4a5b-92fd-8b151aa8064f",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 806 - Verificar que al presionar sobre un “>” avance a los siguientes 20 llamadas",
+              "fullTitle": "Pruebas Calls FTC 806 - Verificar que al presionar sobre un “>” avance a los siguientes 20 llamadas",
+              "timedOut": null,
+              "duration": 8471,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando paginación hacia adelante');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.paginationNextButton().click();\ncy.task('log', 'se avanzó a la siguiente página de llamadas.');",
+              "err": {},
+              "uuid": "bd0477a0-4670-4352-9dd1-9590b25eab66",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 807 - Verificar que al presionar sobre un “>>” avance al final de las llamadas",
+              "fullTitle": "Pruebas Calls FTC 807 - Verificar que al presionar sobre un “>>” avance al final de las llamadas",
+              "timedOut": null,
+              "duration": 12110,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando paginación al final');\ncalls_elements.menuCalls().click();\ncalls_elements.submenuCalls().click();\ncalls_elements.paginationLastButton().click();\ncy.task('log', 'se avanzó al final de la lista de llamadas.');",
+              "err": {},
+              "uuid": "ec3b1e20-6acb-4fc8-88a3-23bccaec4f3a",
+              "parentUUID": "207fd03b-b93a-4d80-8d97-35c8d4c75e08",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "146d42fb-07c8-44b6-8e31-75d0a52323c6",
+            "1a0b1a2a-56a8-4ada-b370-099b4f3c763c",
+            "3eb6e7fc-fb52-41a8-8258-fe14ec4858e1",
+            "bd0477a0-4670-4352-9dd1-9590b25eab66",
+            "ec3b1e20-6acb-4fc8-88a3-23bccaec4f3a"
+          ],
+          "failures": [
+            "8fa70888-15a2-4a39-b6ef-e1e06476b242"
+          ],
+          "pending": [
+            "7ffd3b58-995d-4a5b-92fd-8b151aa8064f"
+          ],
+          "skipped": [],
+          "duration": 111372,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

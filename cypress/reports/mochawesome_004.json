@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-03T21:45:25.725Z",
+    "end": "2024-10-03T21:45:45.655Z",
+    "duration": 19930,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66ed1b17-8685-4fbb-a01a-2de3d10b37d7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login_tests\\login.cy.js",
+      "file": "cypress\\e2e\\login_tests\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "TC 101 -  Verificar que un usuario pueda ingresar al sistema con credenciales válidas",
+          "fullTitle": "TC 101 -  Verificar que un usuario pueda ingresar al sistema con credenciales válidas",
+          "timedOut": null,
+          "duration": 11012,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/');\nlogin_element.login_anim.should('not.exist');\ncy.fixture('login_data.json').then(user_data => {\n  login_element.login_username.should('be.visible').click().type(user_data.user_name);\n  login_element.login_password.should('be.visible').click().type(user_data.user_password);\n});\nlogin_element.login_button.click();\ncy.url().should('include', '/#/home');",
+          "err": {},
+          "uuid": "5e1729d9-2bf2-47bb-8bcd-9eec79847edf",
+          "parentUUID": "66ed1b17-8685-4fbb-a01a-2de3d10b37d7",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "TC 102 -  Verificar que un usuario no pueda ingresar al sistema con credenciales inválidas",
+          "fullTitle": "TC 102 -  Verificar que un usuario no pueda ingresar al sistema con credenciales inválidas",
+          "timedOut": null,
+          "duration": 3707,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/');\nlogin_element.login_anim.should('not.exist');\ncy.fixture('login_data.json').then(user_data => {\n  login_element.login_username.should('be.visible').click().type(user_data.user_namefail);\n  login_element.login_password.should('be.visible').click().type(user_data.user_passwordfail);\n});\nlogin_element.login_button.click();\nlogin_element.login_alert.should('be.visible').and('contain', 'Login credentials incorrect, please try again.');",
+          "err": {},
+          "uuid": "321d9a06-c285-4334-8b28-ad508ad30361",
+          "parentUUID": "66ed1b17-8685-4fbb-a01a-2de3d10b37d7",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "TC 103 -  Verificar que al no llenar el campo de usuario y contraseña el usuario no  pueda ingresar al sistema.",
+          "fullTitle": "TC 103 -  Verificar que al no llenar el campo de usuario y contraseña el usuario no  pueda ingresar al sistema.",
+          "timedOut": null,
+          "duration": 5126,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/');\nlogin_element.login_anim.should('not.exist');\nlogin_element.login_username.should('be.visible').click();\nlogin_element.login_password.should('be.visible').click();\nlogin_element.login_button.click();\nlogin_element.login_missing_required_field.should('be.visible').and('contain', 'Missing required field');",
+          "err": {},
+          "uuid": "9ce8abc5-172f-403a-8f75-fe3be4c76759",
+          "parentUUID": "66ed1b17-8685-4fbb-a01a-2de3d10b37d7",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "5e1729d9-2bf2-47bb-8bcd-9eec79847edf",
+        "321d9a06-c285-4334-8b28-ad508ad30361",
+        "9ce8abc5-172f-403a-8f75-fe3be4c76759"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 19845,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

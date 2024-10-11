@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 1,
+    "failures": 0,
+    "start": "2024-10-03T21:38:05.004Z",
+    "end": "2024-10-03T21:40:06.993Z",
+    "duration": 121989,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 14.285714285714285,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1822a213-e80b-4b6c-8a33-626d5bfcb2fb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\calendar_tests\\calendar.cy.js",
+      "file": "cypress\\e2e\\calendar_tests\\calendar.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "103ffd10-e286-4cb7-b090-7488c708be45",
+          "title": "Pruebas Calendar",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 301 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar su reunión",
+              "fullTitle": "Pruebas Calendar TC 301 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar su reunión",
+              "timedOut": null,
+              "duration": 31121,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando al formulario para agendar una nueva reunion');\ncalendar_elements.schedule_meeting_page().click({\n  force: true\n});\ncy.wait(2000);\ncy.url().should('include', '/#/meetings/edit?return_module=Meetings&return_action=DetailView');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.task_data().then(data => {\n    calendar_elements.first_title1().should('have.text', 'Meetings');\n    calendar_elements.second_title().should('contain.text', 'CREATE');\n    cy.task('log', 'Se ha ingresado al formulario. Ingreso de datos de la reunion');\n    calendar_elements.start_date1().clear({\n      force: true\n    });\n    calendar_elements.end_date().clear({\n      force: true\n    });\n    calendar_elements.location_field().type(data.location, {\n      force: true\n    });\n    calendar_elements.select_duration().click({\n      force: true\n    });\n    calendar_elements.description_field1().type(data.description, {\n      force: true\n    });\n    calendar_elements.save_button1().click({\n      force: true\n    });\n    cy.task('log', 'Verificando mensajes de los campos vacios');\n    calendar_elements.subject_error_message1().should('contain.text', 'Missing required field: Subject');\n    calendar_elements.start_date_error_message().should('contain.text', 'Missing required field: Start Date');\n    calendar_elements.end_date_error_message().should('contain.text', 'Missing required field: End Date');\n  });\n});",
+              "err": {},
+              "uuid": "7b26d3af-a921-44e8-9761-86fe1aaedbe9",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 302 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar una llamada",
+              "fullTitle": "Pruebas Calendar TC 302 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar una llamada",
+              "timedOut": null,
+              "duration": 15344,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando al formulario para agendar una llamada');\ncalendar_elements.schedule_call_page().click({\n  force: true\n});\ncy.wait(2000);\ncy.url().should('include', '/#/calls/edit?return_module=Calls&return_action=DetailView');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.task_data().then(data => {\n    calendar_elements.first_title2().should('have.text', 'Calls');\n    calendar_elements.second_title().should('contain.text', 'CREATE');\n    cy.task('log', 'Se ha ingresado al formulario. Ingreso de datos de la llamada');\n    calendar_elements.start_date2().clear({\n      force: true\n    });\n    calendar_elements.duration_hours().clear({\n      force: true\n    });\n    calendar_elements.description_field2().type(data.description2, {\n      force: true\n    });\n    calendar_elements.save_button2().click({\n      force: true\n    });\n    cy.task('log', 'Verificando mensajes de los campos vacios');\n    calendar_elements.subject_error_message2().should('contain.text', 'Missing required field: Subject');\n    calendar_elements.start_date_error_message().should('contain.text', 'Missing required field: Start Date');\n    calendar_elements.duration_hours_error_message().should('contain.text', 'Missing required field: Duration Hours');\n  });\n});",
+              "err": {},
+              "uuid": "fbca3b96-3afe-4a4a-ab50-48c28971f582",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 303 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar una tarea",
+              "fullTitle": "Pruebas Calendar TC 303 - Verificar que al dejar los campos obligatorios vacíos el usuario no puede agendar una tarea",
+              "timedOut": null,
+              "duration": 19300,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando al formulario para agendar una llamada');\ncalendar_elements.schedule_task_page().click({\n  force: true\n});\ncy.wait(2000);\ncy.url().should('include', '/#/tasks/edit?return_module=Tasks&return_action=DetailView');\ncy.task('log', 'Visita al formulario de creacion de tarea');\ncalendar_elements.first_title().should('contain.text', 'Create');\ncy.task('log', 'Se ha ingresado al formulario. Ingreso de datos de la tarea');\ncalendar_elements.task_data().then(data => {\n  calendar_elements.start_date3().type(data.start_date);\n  calendar_elements.due_date().type(data.due_date);\n  calendar_elements.description_field3().type(data.description0);\n  calendar_elements.contact_field().click();\n  calendar_elements.contact_field_search().type(data.contact);\n  calendar_elements.contact_field_result().click();\n  calendar_elements.save_button3().click();\n  cy.task('log', 'Verificando mensajes de los campos vacios');\n  calendar_elements.subject_error_message3().should('contain.text', 'Missing required field: Subject');\n  calendar_elements.priority_error_message().should('contain.text', 'Missing required field: Priority');\n});",
+              "err": {},
+              "uuid": "65d5e738-7432-425e-b72f-5d3bf2379143",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 304 - Verificar que al presionar un espacio vacío en el calendario y al dejar los campos obligatorios vacíos el usuario no puede agendar una reunión",
+              "fullTitle": "Pruebas Calendar TC 304 - Verificar que al presionar un espacio vacío en el calendario y al dejar los campos obligatorios vacíos el usuario no puede agendar una reunión",
+              "timedOut": null,
+              "duration": 18918,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando a la vista del calendario');\ncalendar_elements.calendar_page().click({\n  force: true\n});\ncy.url().should('include', '/#/calendar');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.task_data().then(data => {\n    calendar_elements.title().should('be.visible').should('have.text', 'Calendar');\n    cy.task('log', 'Se ha ingresado al calendario. Presionar el primer espacio libre del calendario');\n    cy.wait(2000);\n    calendar_elements.today_free_all_day1().should('be.visible').click({\n      force: true\n    });\n    cy.task('log', 'Ingresando al formulario emergente para agendar una reunion o llamada');\n    calendar_elements.meeting_title1().should('be.visible').should('have.text', 'Create Activity');\n    cy.task('log', 'Se ha ingresado al formulario. Ingreso de datos de la reunion');\n    calendar_elements.meeting_start_date().clear({\n      force: true\n    });\n    calendar_elements.meeting_end_date().clear({\n      force: true\n    });\n    calendar_elements.meeting_location_field().type(data.location4, {\n      force: true\n    });\n    calendar_elements.meeting_description_field().type(data.description4, {\n      force: true\n    });\n    calendar_elements.meeting_save_button().click({\n      force: true\n    });\n    cy.task('log', 'Verificando mensaje de los campos vacios');\n    calendar_elements.meeting_subject_error_message().should('contain.text', 'Missing required field: Subject');\n    calendar_elements.meeting_start_date_error_message().should('contain.text', 'Missing required field: Start Date');\n    calendar_elements.meeting_end_date_error_message().should('contain.text', 'Missing required field: End Date');\n  });\n});",
+              "err": {},
+              "uuid": "f18c7fc4-4f41-4dee-9985-fa3ae6e99f0a",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 305 - Verificar que al establecer el filtrado de actividades por semana el sistema reordena el calendario mostrando la agenda de los 7 dias de la semana",
+              "fullTitle": "Pruebas Calendar FTC 305 - Verificar que al establecer el filtrado de actividades por semana el sistema reordena el calendario mostrando la agenda de los 7 dias de la semana",
+              "timedOut": null,
+              "duration": 13526,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando a la vista del calendario');\ncalendar_elements.calendar_page().click({\n  force: true\n});\ncy.url().should('include', '/#/calendar');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.title().should('be.visible').should('have.text', 'Calendar');\n  cy.task('log', 'Se ha ingresado al calendario');\n  cy.wait(2000);\n  cy.task('log', 'Aplicando filtro de organizacion por dias de la semana');\n  calendar_elements.week_filter_button().click({\n    force: true\n  });\n  cy.task('log', 'Verificando el orden de agenda segun el filtro aplicado');\n  calendar_elements.days_list().should('have.length', 7);\n});",
+              "err": {},
+              "uuid": "6646cb07-39c2-4200-a24f-79decb08df35",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 306 - Verificar que al modificar la hora de inicio y fin del dia el sistema muestre los dias con la modificacion",
+              "fullTitle": "Pruebas Calendar FTC 306 - Verificar que al modificar la hora de inicio y fin del dia el sistema muestre los dias con la modificacion",
+              "timedOut": null,
+              "duration": 23418,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando a la vista del calendario');\ncalendar_elements.calendar_page().click({\n  force: true\n});\ncy.url().should('include', '/#/calendar');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.title().should('be.visible').should('have.text', 'Calendar');\n  cy.task('log', 'Se ha ingresado al calendario');\n  cy.wait(2000);\n  cy.task('log', 'Ingresando al menu de configuracion del calendario');\n  calendar_elements.settings_button().click({\n    force: true\n  });\n  calendar_elements.settings_form_title().should('contain.text', 'Settings');\n  cy.task('log', 'Se ha ingresado a la configuracion. Cambiando la hora de inicio y final del dia');\n  calendar_elements.settings_form_start_hours().select('12');\n  calendar_elements.settings_form_end_hours().select('21');\n  calendar_elements.settings_save_button().click({\n    force: true\n  });\n  cy.wait(2000);\n  cy.task('log', 'Verificando que la hora de inicio y final del dia se haya cambiado en la vista del calendario');\n  calendar_elements.setIframe().then(() => {\n    calendar_elements.start_hour_day().should('contain.text', '12pm');\n    calendar_elements.end_hour_day().should('contain.text', '8pm');\n  });\n});",
+              "err": {},
+              "uuid": "dff684b5-7050-4124-8c14-4f23b5e8b6c1",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 307 - Verificar que al ingresar al formulario agendar una llamada desde la pagina principal del calendario el sistema muestre el \"Log call\" como \"checked\"",
+              "fullTitle": "Pruebas Calendar FTC 307 - Verificar que al ingresar al formulario agendar una llamada desde la pagina principal del calendario el sistema muestre el \"Log call\" como \"checked\"",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.task('log', 'Ingresando a la vista del calendario');\ncalendar_elements.calendar_page().click({\n  force: true\n});\ncy.url().should('include', '/#/calendar');\ncalendar_elements.setIframe().then(() => {\n  calendar_elements.title().should('be.visible').should('have.text', 'Calendar');\n  cy.task('log', 'Se ha ingresado al calendario');\n  cy.wait(2000);\n  cy.task('log', 'Presionar el primer espacio libre del calendario');\n  calendar_elements.today_free_all_day2().should('be.visible').click({\n    force: true\n  });\n  cy.task('log', 'Ingresando al formulario emergente para agendar una reunion o llamada');\n  calendar_elements.meeting_title2().should('be.visible').should('have.text', 'Create Activity');\n  cy.task('log', 'Se ha ingresado al formulario. Ingreso de datos de la reunion');\n  cy.task('log', 'Verificando que el cambio de estado de no tickeado a tickeado de \"Log call\"');\n  calendar_elements.call_form_button().should('not.be.checked');\n  calendar_elements.call_form_button().click({\n    force: true\n  });\n  calendar_elements.call_form_button().should('be.checked');\n});",
+              "err": {},
+              "uuid": "9549da24-a327-463c-9bdc-f1e8357ba45e",
+              "parentUUID": "103ffd10-e286-4cb7-b090-7488c708be45",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7b26d3af-a921-44e8-9761-86fe1aaedbe9",
+            "fbca3b96-3afe-4a4a-ab50-48c28971f582",
+            "65d5e738-7432-425e-b72f-5d3bf2379143",
+            "f18c7fc4-4f41-4dee-9985-fa3ae6e99f0a",
+            "6646cb07-39c2-4200-a24f-79decb08df35",
+            "dff684b5-7050-4124-8c14-4f23b5e8b6c1"
+          ],
+          "failures": [],
+          "pending": [
+            "9549da24-a327-463c-9bdc-f1e8357ba45e"
+          ],
+          "skipped": [],
+          "duration": 121627,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

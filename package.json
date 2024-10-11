@@ -1,16 +1,18 @@
 {
-  "name": "suitecrm",
+  "name": "suitecrm-cypress-project",
   "version": "1.0.0",
-  "description": "Pruebas de automatizacion web para las funcionalidades en el sistema SUITE CRM demo",
-  "main": "index.js",
+  "description": "Proyecto de pruebas de SuiteCRM con Cypress",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "report": "mochawesome-merge cypress/reports/mochawesome/*.json | mochawesome-report-generator",
+    "browserstack": "browserstack-cypress run --sync"
   },
-  "keywords": [],
-  "author": "selena_santa_cruz_crespo",
-  "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.14.2"
+    "browserstack-cypress-cli": "^1.20.0",
+    "cypress": "^13.15.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.0.1"
   }
-  
 }

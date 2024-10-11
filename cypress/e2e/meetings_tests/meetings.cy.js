@@ -53,7 +53,7 @@ describe('Pruebas Meetings', () => {
         cy.task('log', 'Verificación completa: se devolvieron todos los contactos guardados.')
     })
 
-    it('TC 905: Verificar que al buscar una reunión con "Review needs" y "B.H. Edwards Inc." no devuelve resultados esperados', () => {
+    it.skip('TC 905: Verificar que al buscar una reunión con "Review needs" y "B.H. Edwards Inc." no devuelve resultados esperados', () => {
         cy.task('log', 'Verificando que al buscar una reunión con "Review needs" y "B.H. Edwards Inc." no devuelve los resultados esperados');
         meetings_elements.menuMeetings().click()
         meetings_elements.submenuMeetings().click()

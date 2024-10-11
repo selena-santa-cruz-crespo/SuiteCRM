@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-03T21:40:08.634Z",
+    "end": "2024-10-03T21:41:00.965Z",
+    "duration": 52331,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cce272e8-cf80-485e-b423-b59a3fb451c5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\accounts_tests\\accounts.cy.js",
+      "file": "cypress\\e2e\\accounts_tests\\accounts.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9598312-4b0f-48aa-9350-f42a4e4ed420",
+          "title": "Pruebas Accounts",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 501 - Verificar que al aplicar un filtro con el campo Name nos devuelve una lista de cuentas de acuerdo al filtro",
+              "fullTitle": "Pruebas Accounts TC 501 - Verificar que al aplicar un filtro con el campo Name nos devuelve una lista de cuentas de acuerdo al filtro",
+              "timedOut": null,
+              "duration": 20706,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "account_element.account_submenu_view.click({\n  force: true\n});\ncy.task('log', 'Cambio  a la pestaña accounts');\ncy.url().should('include', '#/accounts/index?return_module=Accounts&return_action=DetailView');\naccount_element.account_title_page.should('be.visible');\naccount_element.account_button_filter_general.click();\ncy.url().should('include', '#/accounts/index?return_module=Accounts&return_action=DetailView');\ncy.fixture('account_data.json').then(account_data => {\n  account_element.account_name_filter.should('be.visible').click().type(account_data.account_filter);\n});\ncy.task('log', 'Campo Name llenado');\naccount_element.account_button_search_filter.click().wait(2000);\naccount_element.account_column_name.each($el => {\n  const text = $el.text().trim();\n  expect(text.startsWith('M') || text.startsWith('m')).to.be.true;\n});\ncy.task('log', 'Filtro aplicado y verificado');",
+              "err": {
+                "message": "AssertionError: expected false to be true",
+                "estack": "AssertionError: expected false to be true\n    at Context.eval (webpack:///./cypress/e2e/accounts_tests/accounts.cy.js:35:67)",
+                "diff": null
+              },
+              "uuid": "1cb7124d-a309-4cc2-80b3-2462a798d997",
+              "parentUUID": "e9598312-4b0f-48aa-9350-f42a4e4ed420",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 502 - Verificar que al no llenar el campo Name en formulario de creación no me permita crear la cuenta",
+              "fullTitle": "Pruebas Accounts TC 502 - Verificar que al no llenar el campo Name en formulario de creación no me permita crear la cuenta",
+              "timedOut": null,
+              "duration": 18745,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "account_element.account_submenu_create.click({\n  force: true\n});\ncy.task('log', 'Cambio al formulario de creacion de Cuenta ');\ncy.url().should('include', '/#/accounts/edit?return_module=Accounts&return_action=DetailView');\naccount_element.account_text_page_create.and('be.visible');\ncy.fixture('account_data.json').then(account_data => {\n  account_element.account_website_form_create.should('be.visible').click().type(account_data.account_website);\n  account_element.account_button_plus_form_create.click({\n    force: true\n  });\n  cy.wait(2000);\n  account_element.account_email_fomr_create.should('be.visible').click().type(account_data.account_email);\n});\ncy.task('log', 'Campos llenados email y website');\naccount_element.account_button_save_form_create.should('be.visible').click();\naccount_element.account_message_alert_form_create.should('contain', 'There are validation errors, unable to perform action.').and('be.visible');\ncy.task('log', 'Mensaje de error verificado');",
+              "err": {},
+              "uuid": "f8c67e8a-0369-4416-acbe-d43548f553b0",
+              "parentUUID": "e9598312-4b0f-48aa-9350-f42a4e4ed420",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC 503 - Verificar que al presionar “View Account” me muestra una lista de la cuentas.",
+              "fullTitle": "Pruebas Accounts FTC 503 - Verificar que al presionar “View Account” me muestra una lista de la cuentas.",
+              "timedOut": null,
+              "duration": 12705,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Cambio  a la pestaña accounts');\naccount_element.account_submenu.should('be.visible').click();\ncy.url().should('include', '#/accounts');\naccount_element.account_title_page.should('be.visible');\naccount_element.account_column_name.should('not.be.empty');\ncy.task('log', 'Lista de cuentas verificada');",
+              "err": {},
+              "uuid": "c6b3c844-1931-48b7-9c65-c21727a8a1eb",
+              "parentUUID": "e9598312-4b0f-48aa-9350-f42a4e4ed420",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f8c67e8a-0369-4416-acbe-d43548f553b0",
+            "c6b3c844-1931-48b7-9c65-c21727a8a1eb"
+          ],
+          "failures": [
+            "1cb7124d-a309-4cc2-80b3-2462a798d997"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 52156,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

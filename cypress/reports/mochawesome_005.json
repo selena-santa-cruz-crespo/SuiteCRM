@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-03T21:45:47.523Z",
+    "end": "2024-10-03T21:47:25.066Z",
+    "duration": 97543,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7584e292-0f05-4795-ac61-227234363cae",
+      "title": "",
+      "fullFile": "cypress\\e2e\\leads_tests\\leads.cy.js",
+      "file": "cypress\\e2e\\leads_tests\\leads.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+          "title": "Pruebas Leads ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC 201 - Verificar que al intentar crear un usuario sin completar los campos obligatorios, se muestre un mensaje de error.",
+              "fullTitle": "Pruebas Leads  TC 201 - Verificar que al intentar crear un usuario sin completar los campos obligatorios, se muestre un mensaje de error.",
+              "timedOut": null,
+              "duration": 24856,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.createLeadButton.click({\n  force: true\n});\nleads_elements.titleSelect.select(_lead_data.default.title);\nleads_elements.fullNameField.type(_lead_data.default.fullName).should('be.visible');\nleads_elements.jobTitleField.type(_lead_data.default.jobTitle).should('be.visible');\nleads_elements.departmentField.type(_lead_data.default.department).should('be.visible');\nleads_elements.projectField.type(_lead_data.default.project).should('be.visible');\nleads_elements.primaryAddressStreetField.type(_lead_data.default.primaryAddress.street).should('be.visible');\nleads_elements.primaryAddressCityField.type(_lead_data.default.primaryAddress.city).should('be.visible');\nleads_elements.primaryAddressDistrictField.type(_lead_data.default.primaryAddress.district).should('be.visible');\nleads_elements.primaryAddressCountryField.type(_lead_data.default.primaryAddress.country).should('be.visible');\nleads_elements.emailField.type(_lead_data.default.email).should('be.visible');\nleads_elements.phoneNumbersField.type(_lead_data.default.phoneNumbers).should('be.visible');\nleads_elements.numbersField.type(_lead_data.default.numbers).should('be.visible');\nleads_elements.faxNumbersField.type(_lead_data.default.faxNumbers).should('be.visible');\nleads_elements.websiteField.type(_lead_data.default.website).should('be.visible');\nleads_elements.altAddressStreetField.type(_lead_data.default.altAddress.street).should('be.visible');\nleads_elements.altAddressCityField.type(_lead_data.default.altAddress.city).should('be.visible');\nleads_elements.altAddressDistrictField.type(_lead_data.default.altAddress.district).should('be.visible');\nleads_elements.altAddressCountryField.type(_lead_data.default.altAddress.country).should('be.visible');\ncy.task('log', 'Intentando guardar el lead sin campos obligatorios completos');\nleads_elements.saveButton.click();\ncy.task('log', 'Verificando que se muestre el mensaje de error de validación');\nleads_elements.validationError.should('be.visible');\ncy.task('log', 'Verificando que se muestre la alerta de error');\nleads_elements.alert.should('be.visible');",
+              "err": {},
+              "uuid": "ac5ee06e-b99a-4d42-be2a-f4d93a42e73c",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 202 - Verificar redirección al intentar crear un usuario y cancelar la creación ",
+              "fullTitle": "Pruebas Leads  TC 202 - Verificar redirección al intentar crear un usuario y cancelar la creación ",
+              "timedOut": null,
+              "duration": 21233,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.createLeadButton.click({\n  force: true\n});\nleads_elements.titleSelect.select(_lead_data.default.title);\nleads_elements.fullNameField.type(_lead_data.default.fullName).should('be.visible');\nleads_elements.jobTitleField.type(_lead_data.default.jobTitle).should('be.visible');\nleads_elements.departmentField.type(_lead_data.default.department).should('be.visible');\nleads_elements.projectField.type(_lead_data.default.project).should('be.visible');\nleads_elements.primaryAddressStreetField.type(_lead_data.default.primaryAddress.street).should('be.visible');\nleads_elements.primaryAddressCityField.type(_lead_data.default.primaryAddress.city).should('be.visible');\nleads_elements.primaryAddressDistrictField.type(_lead_data.default.primaryAddress.district).should('be.visible');\nleads_elements.primaryAddressCountryField.type(_lead_data.default.primaryAddress.country).should('be.visible');\nleads_elements.emailField.type(_lead_data.default.email).should('be.visible');\nleads_elements.phoneNumbersField.type(_lead_data.default.phoneNumbers).should('be.visible');\nleads_elements.numbersField.type(_lead_data.default.numbers).should('be.visible');\nleads_elements.faxNumbersField.type(_lead_data.default.faxNumbers).should('be.visible');\nleads_elements.websiteField.type(_lead_data.default.website).should('be.visible');\nleads_elements.altAddressStreetField.type(_lead_data.default.altAddress.street).should('be.visible');\nleads_elements.altAddressCityField.type(_lead_data.default.altAddress.city).should('be.visible');\nleads_elements.altAddressDistrictField.type(_lead_data.default.altAddress.district).should('be.visible');\nleads_elements.altAddressCountryField.type(_lead_data.default.altAddress.country).should('be.visible');\ncy.task('log', 'Cancelando la creación del cliente potencial');\nleads_elements.cancelButton.click().should('be.visible');\ncy.task('log', 'Confirmando la cancelación');\nleads_elements.cancelOkButton.click().should('be.visible');\ncy.task('log', 'Verificando que se redirige correctamente a la lista de leads');\nleads_elements.leadsTitle.click().should('be.visible');",
+              "err": {},
+              "uuid": "1795e357-65ab-457e-9506-f31c01533e0d",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 203 - Verificar que al aplicar un filtro con el nombre de una empresa existente, se muestren los clientes potenciales asociados.",
+              "fullTitle": "Pruebas Leads  TC 203 - Verificar que al aplicar un filtro con el nombre de una empresa existente, se muestren los clientes potenciales asociados.",
+              "timedOut": null,
+              "duration": 9743,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.viewLeadsButton.click({\n  force: true\n});\nleads_elements.filterSettingsButton.click();\ncy.task('log', `Aplicando filtro con el nombre de la empresa existente: ${_lead_data.default.basic_Filter.validCompanyName}`);\nleads_elements.basicFilterCompanyField.clear().type(_lead_data.default.basic_Filter.validCompanyName).should('be.visible');\nleads_elements.filterButton.click();\ncy.task('log', 'Verificando que se muestren clientes potenciales asociados');\nleads_elements.leadListRows.should('have.length.greaterThan', 0).and('be.visible');",
+              "err": {},
+              "uuid": "5f949709-ca0b-4f81-9dbd-248a9c7c482c",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 204 - Verificar que al aplicar un filtro con el nombre de una empresa inexistente, se muestre \"No results found\".",
+              "fullTitle": "Pruebas Leads  TC 204 - Verificar que al aplicar un filtro con el nombre de una empresa inexistente, se muestre \"No results found\".",
+              "timedOut": null,
+              "duration": 8718,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.viewLeadsButton.click({\n  force: true\n});\nleads_elements.filterSettingsButton.click({\n  force: true\n});\nleads_elements.basicFilterCompanyField.clear().type(_lead_data.default.basic_Filter.invalidCompanyName).should('be.visible');\nleads_elements.filterButton.click();\ncy.task('log', 'Verificando que se muestre el mensaje \"No results found\".');\nleads_elements.noResultsFoundText.should('contain.text', 'No results found.').and('be.visible');\ncy.task('log', 'Verificando que no existan filas en la lista de leads');\nleads_elements.leadListRows.should('not.exist');",
+              "err": {},
+              "uuid": "fca9dba5-6653-466e-a03d-2cf1f51b7fc0",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC 205 - Verificar que al intentar crear un filtro rápido sin completar los campos obligatorios, se muestre un mensaje de error.",
+              "fullTitle": "Pruebas Leads  TC 205 - Verificar que al intentar crear un filtro rápido sin completar los campos obligatorios, se muestre un mensaje de error.",
+              "timedOut": null,
+              "duration": 11267,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.viewLeadsButton.click({\n  force: true\n});\nleads_elements.filterSettingsButton.click({\n  force: true\n});\nleads_elements.checkmarkCheckbox.click({\n  force: true\n});\nleads_elements.sortOrderAscCheckbox.check({\n  force: true\n});\nleads_elements.titleSelect.select('0: name');\nleads_elements.sortOrderLabel.click({\n  force: true\n});\nleads_elements.groupButton.first().click({\n  force: true\n});\nleads_elements.groupButton.eq(1).click({\n  force: true\n});\ncy.task('log', 'Verificando que se muestre un mensaje de error en el campo vacio');\nleads_elements.dynamicLabel.should('contain.text', 'Missing required field: Name').and('be.visible');\ncy.task('log', 'Verificando que se muestre un mensaje de alerta - There are validation errors, unable to perform action');\nleads_elements.alert.should('contain.text', 'There are validation errors, unable to perform action.').and('be.visible');",
+              "err": {},
+              "uuid": "9aadc970-1dab-404e-89a1-38da03dc8705",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC: 206  -  Verificar que al hacer click en visualizar la lista de clientes potenciales, se muestran una tabla con los clientes potenciales",
+              "fullTitle": "Pruebas Leads  FTC: 206  -  Verificar que al hacer click en visualizar la lista de clientes potenciales, se muestran una tabla con los clientes potenciales",
+              "timedOut": null,
+              "duration": 9403,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.viewLeadsButton.click({\n  force: true\n});\ncy.task('log', 'Verificando que la lista de clientes potenciales no esté vacía');\nleads_elements.leadListRows.should('have.length.greaterThan', 0);\ncy.task('log', 'Verificando que cada fila de la lista tenga un nombre de cliente potencial no vacío');\nleads_elements.leadListRows.each($row => cy.wrap($row).find('td.column-name').should('not.be.empty'));\ncy.task('log', 'Verificando la URL de la lista de clientes potenciales');\ncy.url().should('eq', 'https://suite8demo.suiteondemand.com/#/leads/index?return_module=Leads&return_action=DetailView');",
+              "err": {},
+              "uuid": "e5126f97-9158-4fb9-8295-43885d3afc6a",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "FTC: 207 - Verificar que al intentar iniciar una llamada desde la interfaz, se redirige al formulario de creación de llamadas.",
+              "fullTitle": "Pruebas Leads  FTC: 207 - Verificar que al intentar iniciar una llamada desde la interfaz, se redirige al formulario de creación de llamadas.",
+              "timedOut": null,
+              "duration": 11960,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('log', 'Verificando URL de la página de inicio');\nleads_elements.verifyHomePageUrl();\ncy.task('log', 'Verificando que la barra de navegación sea visible');\nleads_elements.navbar.should('be.visible');\nleads_elements.viewLeadsButton.click({\n  force: true\n});\ncy.task('log', 'Verificando que el icono de teléfono sea visible y hacer click');\nleads_elements.phoneIcon.first().should('be.visible').click();\ncy.task('log', 'Verificando la URL para confirmar la redirección al formulario de creación de llamadas');",
+              "err": {},
+              "uuid": "759ffb89-b551-4519-9157-271a4187f340",
+              "parentUUID": "1a1ccf59-6349-4196-9d24-314b7f2e64d2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ac5ee06e-b99a-4d42-be2a-f4d93a42e73c",
+            "1795e357-65ab-457e-9506-f31c01533e0d",
+            "5f949709-ca0b-4f81-9dbd-248a9c7c482c",
+            "fca9dba5-6653-466e-a03d-2cf1f51b7fc0",
+            "9aadc970-1dab-404e-89a1-38da03dc8705",
+            "e5126f97-9158-4fb9-8295-43885d3afc6a",
+            "759ffb89-b551-4519-9157-271a4187f340"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 97180,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
