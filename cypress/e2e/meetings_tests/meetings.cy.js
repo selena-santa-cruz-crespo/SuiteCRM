@@ -82,4 +82,4 @@ describe('Pruebas Meetings', () => {
         meetings_elements.verifyMeetingsTableHasRows()
         cy.task('log', 'Verificación completa: se redirigió correctamente al Related to.')
     })
-})
+});
